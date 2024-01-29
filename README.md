@@ -9,11 +9,11 @@
 3. Задайте каталог, в котором вы будете развертывать сервис, каталогом по умолчанию: `yc config set folder-name <название_каталога>`.
 4. Получите IAM-токен для своего пользовательского аккаунта: `yc iam create-token`.
 5. Выполните команду, подставив вместо <IAM-токен> значение токена с предыдущего шага:
-```   
-   docker login \
-  --username iam \
-  --password <IAM-токен> \
-  cr.yandex
+```
+docker login \
+--username iam \
+--password <IAM-токен> \
+cr.yandex
 ```
 7. Загрузите Docker-образ в Container Registry:
 `docker tag langserve-demo cr.yandex/<идентификатор_реестра>/langserve-demo:latest`
@@ -22,14 +22,15 @@
 8. Создайте авторизованный ключ для сервисного аккаунта и сохраните его в файл json.key как описано в [документации](https://cloud.yandex.ru/ru/docs/cli/operations/authentication/service-account) (шаги 1-2).
 9. В проекте DataSphere создайте секрет, хранящий все содержимое файла (json) с авторизованным ключом для сервисного аккаунта.
 10. В проекте DataSphere создайте новый ресурс "Нода". При создании укажите следующие параметры:
-Имя
-Тип: Docker-образ
-Путь к образу: cr.yandex/<id_container_registry>/langserve-demo
-Дополнительные параметры:
-Имя пользователя: json_key
-Секрет с паролем: укажите секрет, созданный выше
-Порт: 8000
-Таймаут: 180 секунд
+> [!NOTE]
+> Имя
+> Тип: Docker-образ
+> Путь к образу: cr.yandex/<id_container_registry>/langserve-demo
+> Дополнительные параметры:
+> Имя пользователя: json_key
+> Секрет с паролем: укажите секрет, созданный выше
+> Порт: 8000
+> Таймаут: 180 секунд
 11. Для тестирования развернутой ноды сделайте запрос: 
 ```
 curl -H "x-node-id: <id_ноды>" -H "Authorization: Bearer <IAM_TOKEN>" -H "x-folder-id: <id_каталога>" -X POST -d '{
