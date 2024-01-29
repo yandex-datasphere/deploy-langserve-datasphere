@@ -1,0 +1,8 @@
+langchain==0.0.348
+yandex-chain==0.0.3
+langserve==0.0.35
+fastapi==0.103.2
+uvicorn==0.23.2
+chromadb==0.4.21
+sse_starlette==1.8.2
+bs4
