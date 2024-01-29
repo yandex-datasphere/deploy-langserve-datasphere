@@ -24,8 +24,11 @@ docker login \
 cr.yandex
 ```
 7. Загрузите Docker-образ в Container Registry:
+
 `docker tag langserve-demo cr.yandex/<идентификатор_реестра>/langserve-demo:latest`
+
 `docker push cr.yandex/<идентификатор_реестра>/langserve-demo:latest`
+
 При необходимости можно использовать Docker Hub или другое registry для хранения образа.
 8. Создайте авторизованный ключ для сервисного аккаунта и сохраните его в файл `json.key` как описано в [документации](https://cloud.yandex.ru/ru/docs/cli/operations/authentication/service-account) (шаги 1-2).
 
