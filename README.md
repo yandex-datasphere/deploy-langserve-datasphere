@@ -1,3 +1,7 @@
+# Внимание!
+
+> Данный репозиторий устарел, текущая версия: https://github.com/all-mute/deploy-langserve-datashpere-2.0
+
 # Деплой LangServe в Yandex DataSphere
 
 В данном примере мы будем использовать 🦜️🏓[Langserve](https://github.com/langchain-ai/langserve?ref=blog.langchain.dev) для деплоя цепочек LangChain как REST API. Для развертывания Docker-образа будет использоваться ML-платформа [Yandex DataSphere](https://cloud.yandex.ru/ru/services/datasphere).
